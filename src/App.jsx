@@ -152,10 +152,10 @@ export default function App() {
           YOUR GAMES — SELECT A STAGE
         </div>
         <h1
-          className="pixel text-4xl leading-tight sm:text-5xl"
+          className="pixel text-3xl leading-tight sm:text-5xl"
           style={{ textShadow: "3px 3px 0 var(--red), 6px 6px 0 rgba(30,155,255,0.75)" }}
         >
-          PLAYLOG
+          WARPZONE
         </h1>
       </header>
 
@@ -306,7 +306,7 @@ export default function App() {
       {/* Footer */}
       <footer className="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 border-t-[3px] border-white/15 px-6 py-8 text-[13px] text-[var(--muted)]">
         <span className="blink pixel text-[9px] text-[var(--yellow)]">INSERT COIN</span>
-        <span>PlayLog — your PlayStation &amp; Nintendo backlog</span>
+        <span>WarpZone — your PlayStation &amp; Nintendo backlog</span>
       </footer>
 
       {/* Detail modal */}

@@ -1,39 +1,55 @@
-# 🎮 PlayLog
+# 🍄 WarpZone
 
-A modern **PlayStation & Nintendo** game tracker — search games, build a library,
-and track what's *Backlog / Playing / Completed*. Built with **Vite + React + Tailwind**.
-Your library is stored privately in your browser (localStorage) — no backend, no login, free.
+A retro-arcade **game backlog tracker** for PlayStation & Nintendo. Search games,
+build your library, track what's *Backlog / Playing / Cleared*, get recommendations,
+and browse rich detail pages — all in a pixel-art, "SELECT A STAGE" arcade UI.
 
-## Setup
+**▶ Live demo:** https://game-pulse-rosy.vercel.app  <!-- update after renaming the Vercel project -->
 
+Built with **React + Vite + Tailwind**. No backend — your library lives privately in
+your browser (localStorage), so it's free forever and needs no login.
+
+<!-- Add a screenshot or GIF here — recruiters look at this first:
+![WarpZone screenshot](docs/screenshot.png)
+-->
+
+## ✨ Features
+- 🔎 **Search** the RAWG game database, filtered to **PlayStation + Nintendo** only.
+- 🗂️ **Library** with three statuses — Backlog / Playing / Cleared — that persists locally.
+- ★ **Recommendations** — "what to play next," generated from the genres of games you've cleared (content-based filtering).
+- 📄 **Detail pages** — cover art, description, Metacritic, genres, and **click-to-enlarge screenshots**.
+- 🎲 **Surprise Me** — picks a random unfinished game to play.
+- 🕹️ **Retro-arcade UI** — pixel font, CRT scanlines, HUD (`1UP` / `HI-SCORE` / coins), and cards colour-coded by console (🔴 Nintendo / 🔵 PlayStation).
+
+## 🧠 How it works
+- **Data:** the [RAWG API](https://rawg.io/apidocs) (free) provides all game info; `parent_platforms=2,7` restricts results to PlayStation & Nintendo.
+- **Storage:** your library is saved in the browser's `localStorage` — private to each device, no accounts, no server.
+- **Recommendations:** the paid "similar games" endpoint isn't available on the free tier, so WarpZone ranks your cleared games' **genres** and asks RAWG for the most popular titles in those genres — genuine content-based filtering.
+
+## 🚀 Run it locally
 ```bash
-# 1. Get a FREE RAWG API key (game data): https://rawg.io/apidocs
-#    Sign up → your key is on your account page.
-
-# 2. Add it
-cp .env.example .env          # then paste your key into .env
-
-# 3. Install + run
+git clone <your-repo-url>
+cd warpzone
 npm install
-npm run dev                   # → http://localhost:5173
+cp .env.example .env        # add your free RAWG key: VITE_RAWG_KEY=...
+npm run dev                 # → http://localhost:5173
 ```
+Get a free RAWG key at https://rawg.io/apidocs.
 
-## What it does
-- 🔎 **Search** games (filtered to PlayStation + Nintendo only — no PC/Xbox).
-- ➕ **Add to library** with a status: Backlog / Playing / Completed.
-- 📊 **Stats** — how many in each status.
-- 🎴 **Cards** show cover art, rating, average hours to beat ("what to expect"), platforms.
-- 💾 Everything persists in your browser.
-
-## Project map
+## 🗺️ Project structure
 | File | Role |
 |---|---|
-| `src/App.jsx` | the whole UI (search, library, tabs, stats) |
-| `src/components/GameCard.jsx` | one game tile |
-| `src/rawg.js` | RAWG API client (platform filter lives here) |
+| `src/App.jsx` | main UI — views, search, library, recommendations |
+| `src/components/GameCard.jsx` | one arcade "cartridge" card |
+| `src/components/GameDetail.jsx` | detail modal + screenshot lightbox |
+| `src/rawg.js` | RAWG API client (search / recommend / detail) |
 | `src/useLibrary.js` | localStorage-backed library state |
 
-## Next ideas
-- **Recommendations**: RAWG has a free `/games/{id}/suggested` endpoint (similar games) — no AI needed.
-- **AI recommendations**: later, add a "recommend from my completed list + explain why" using a free Gemini tier.
-- **Deploy free**: `npm run build` → drop on Vercel/Netlify.
+## 🛠️ What I learned
+React (hooks, component state, a custom `useLibrary` hook), consuming a REST API,
+content-based recommendations, `localStorage` persistence, responsive Tailwind design,
+and shipping to production on Vercel.
+
+## 🔭 Possible next steps
+- Accounts + cloud sync (Supabase) for cross-device libraries.
+- More platforms, sorting, and playtime charts.
