@@ -3,6 +3,7 @@ import { searchGames, recommendGames, getGameDetail } from "./rawg";
 import { useLibrary } from "./useLibrary";
 import GameCard from "./components/GameCard";
 import GameDetail from "./components/GameDetail";
+import MusicPlayer from "./components/MusicPlayer";
 
 const TABS = ["all", "backlog", "playing", "completed"];
 const pad = (n, len) => String(n).padStart(len, "0");
@@ -135,6 +136,7 @@ export default function App() {
       <Decor />
       <div className="vig" />
       <div className="crt" />
+      <MusicPlayer />
 
       {/* HUD */}
       <div className="pixel relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 pt-5 text-[9px] text-[var(--muted)]">
