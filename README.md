@@ -1,5 +1,7 @@
 # 🍄 WarpZone
 
+> 🎵 **Fun fact:** the background music toggle plays the Wii Shop Channel theme. I've always been genuinely impressed by the Wii/Wii U's clean white UI and its music — this is a small tribute to that.
+
 A retro-arcade **game backlog tracker** for PlayStation & Nintendo. Search games,
 build your library, track what's *Backlog / Playing / Cleared*, get recommendations,
 and browse rich detail pages — all in a pixel-art, "SELECT A STAGE" arcade UI.
